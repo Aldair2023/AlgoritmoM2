@@ -74,7 +74,7 @@ public class Helper {
 
     }
 
-    public static void DiagonalSecundaria(JTable TablaInicial, JTable TablaResultado) {
+    public static void LetraB(JTable TablaInicial, JTable TablaResultado) {
         int nFilas, nColumnas, aux;
 
         nFilas = TablaInicial.getColumnCount();
@@ -84,7 +84,7 @@ public class Helper {
             for (int j = 0; j < nColumnas; j++) {
 
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if (i + j == nFilas - 1) {
+                if (j == 0 || i == 0 && i > nFilas|| i == nFilas/2 || i == nFilas-1 || j == (nColumnas-1)) {
                     TablaResultado.setValueAt(aux, i, j);
                 }
 
@@ -93,7 +93,7 @@ public class Helper {
         }
     }
 
-    public static void TriangularSuperior(JTable TablaInicial, JTable TablaResultado) {
+    public static void LetraK(JTable TablaInicial, JTable TablaResultado) {
         int nFilas, nColumnas, aux;
 
         nFilas = TablaInicial.getColumnCount();
@@ -102,7 +102,7 @@ public class Helper {
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if (i == j || i <= j) {
+                if (j == nColumnas/2 || i+j == nFilas-1 && i <= j || i == j && i+j > nFilas ) {
                     TablaResultado.setValueAt(aux, i, j);
                 }
 
@@ -111,7 +111,7 @@ public class Helper {
         }
     }
 
-    public static void TriangularInferior(JTable TablaInicial, JTable TablaResultado) {
+    public static void LetraM(JTable TablaInicial, JTable TablaResultado) {
         int nFilas, nColumnas, aux;
 
         nFilas = TablaInicial.getColumnCount();
@@ -120,7 +120,7 @@ public class Helper {
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if ((i == j || i >= j)) {
+                if ((i + j == nFilas - 1 && i <= j) || (i == j && i + j <= nFilas) || j==0 || j== nColumnas-1) {
                     TablaResultado.setValueAt(aux, i, j);
                 }
 
@@ -129,7 +129,8 @@ public class Helper {
         }
     }
 
-    public static void MatrizTranspouesta(JTable TablaInicial, JTable TablaResultado) {
+
+    public static void LetraW(JTable TablaInicial, JTable TablaResultado) {
         int nFilas, nColumnas, aux;
 
         nFilas = TablaInicial.getColumnCount();
@@ -138,26 +139,7 @@ public class Helper {
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                TablaResultado.setValueAt(aux, j, i);
-
-            }
-
-        }
-    }
-
-    public static void LetraA(JTable TablaInicial, JTable TablaResultado) {
-        int nFilas, nColumnas, aux;
-
-        nFilas = TablaInicial.getColumnCount();
-        nColumnas = TablaInicial.getRowCount();
-
-        for (int i = 0; i < nFilas; i++) {
-            for (int j = 0; j < nColumnas; j++) {
-                aux = (int) TablaInicial.getValueAt(i, j);
-                if (nFilas != nColumnas && nFilas % 2 != 0 && nColumnas % 2 != 0) {
-
-                }
-                if (j == 0 || i == 0 || j == nColumnas - 1 || i == nFilas / 2) {
+                if ((i + j == nFilas - 1 && i >= j) || (i == j && i + j >= nFilas) || j==0 || j== nColumnas-1) {
                     TablaResultado.setValueAt(aux, i, j);
                 }
 
@@ -166,7 +148,7 @@ public class Helper {
         }
     }
 
-    public static void LetraZ(JTable TablaInicial, JTable TablaResultado) {
+    public static void LetraQ(JTable TablaInicial, JTable TablaResultado) {
         int nFilas, nColumnas, aux;
 
         nFilas = TablaInicial.getColumnCount();
@@ -175,25 +157,7 @@ public class Helper {
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if ((i + j == nFilas - 1) || i == 0 || i == nFilas - 1) {
-                    TablaResultado.setValueAt(aux, i, j);
-                }
-
-            }
-
-        }
-    }
-
-    public static void LetraT(JTable TablaInicial, JTable TablaResultado) {
-        int nFilas, nColumnas, aux;
-
-        nFilas = TablaInicial.getColumnCount();
-        nColumnas = TablaInicial.getRowCount();
-
-        for (int i = 0; i < nFilas; i++) {
-            for (int j = 0; j < nColumnas; j++) {
-                aux = (int) TablaInicial.getValueAt(i, j);
-                if (i == 0 || j == nColumnas / 2) {
+                if (i == nFilas-4 || (i == nFilas-5)  ) {
                     TablaResultado.setValueAt(aux, i, j);
                 }
 

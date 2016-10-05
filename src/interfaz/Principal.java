@@ -21,6 +21,8 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        
     }
 
     /**
@@ -50,9 +52,6 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTablaResultado = new javax.swing.JTable();
         cmbCombo = new javax.swing.JComboBox();
-        jPanel4 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtResultado = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -165,19 +164,8 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 390, 210));
 
-        cmbCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DiagonalSecundaria", "TriangularSuperoor", "TriangularInferior", "Transponerl", "LetraA", "LetraZ", "LetraT", "LetraV", "LetraE", "LetraF", "LetraP", "LetraI", "LetraN", "LetraY", "LetraX" }));
+        cmbCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LetraB", "LetraK", "LetraM", "LetraW", "LetraQ", "LetraJ", "LetraG", "LetraR", "FiguraUNO", "FiguraDOS", "Cruz", "Rombo", " " }));
         jPanel1.add(cmbCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 100, 50));
-
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultado", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 3, 14))); // NOI18N
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtResultado.setColumns(20);
-        txtResultado.setRows(5);
-        jScrollPane3.setViewportView(txtResultado);
-
-        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 580, 60));
-
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 490, 620, 100));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/Binary-1024x640.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -191,7 +179,7 @@ public class Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -380,21 +368,13 @@ public class Principal extends javax.swing.JFrame {
         nColumnas = tblTablaResultado.getRowCount();
 
         switch (op) {
-            case 0: //Diagonal_Secundaria
-            Helper.DiagonalSecundaria(tblTablaInicial, tblTablaResultado);
+            case 0: //Letra_B
+            Helper.LetraB(tblTablaInicial, tblTablaResultado);
             break;
-            case 1: //Triangular_Superior
-            Helper.TriangularSuperior(tblTablaInicial, tblTablaResultado);
-            break;
-            case 2: //Triangular_Inferior
-            Helper.TriangularInferior(tblTablaInicial, tblTablaResultado);
-            break;
-            case 3: //Transposicion_De_La_Matriz
-            Helper.MatrizTranspouesta(tblTablaInicial, tblTablaResultado);
-            break;
-            case 4: //Letra_A
-            if (nFilas % 2 != 0 || nColumnas % 2 != 0) {
-                Helper.mensaje(this, "La matriz debe ser par para visualizar mejor la Letra requerida", "Aviso", 1);
+            case 1: //Letra_K 
+            Helper.LetraK(tblTablaInicial, tblTablaResultado);
+                if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
+                Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor la Letra requerida", "Aviso", 1);
                 Helper.tablaPorDefecto(tblTablaInicial);
                 Helper.tablaPorDefecto(tblTablaResultado);
                 txtFilas.setText("");
@@ -405,9 +385,18 @@ public class Principal extends javax.swing.JFrame {
                 JButton botonesD[] = {cmdOperacion, cmdAuto, cmdManual};
                 Helper.habilitarBotones(botonesH);
                 Helper.deshabilitarBotones(botonesD);
-
-            }
-
+                }
+            break;
+            case 2: //Letra_M
+            Helper.LetraM(tblTablaInicial, tblTablaResultado);
+            break;
+            case 3: //Letra_W
+            Helper.LetraW(tblTablaInicial, tblTablaResultado);
+            break;
+            case 4: //Letra_Q
+            Helper.LetraQ(tblTablaInicial, tblTablaResultado);
+            break;
+/*
             Helper.LetraA(tblTablaInicial, tblTablaResultado);
             break;
             case 5: //Letra_Z
@@ -429,6 +418,9 @@ public class Principal extends javax.swing.JFrame {
             }
             Helper.LetraT(tblTablaInicial, tblTablaResultado);
             break;
+            /*
+            
+            */
             case 7: //Letra_V
             if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
                 Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor la Letra requerida", "Aviso", 1);
@@ -557,14 +549,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tblTablaInicial;
     private javax.swing.JTable tblTablaResultado;
     private javax.swing.JTextField txtColumnas;
     private javax.swing.JTextField txtFilas;
-    private javax.swing.JTextArea txtResultado;
     // End of variables declaration//GEN-END:variables
 }
