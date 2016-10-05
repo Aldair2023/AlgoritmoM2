@@ -5,6 +5,11 @@
  */
 package interfaz;
 
+import clase.Helper;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author aldair
