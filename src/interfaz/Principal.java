@@ -435,15 +435,19 @@ public class Principal extends javax.swing.JFrame {
 
                 Helper.LetraR(tblTablaInicial, tblTablaResultado);
                 break;
-
-            case 8: //Figura_Mas
+            case 8: //Figura_Mas1111
                 Helper.Mas(tblTablaInicial, tblTablaResultado);
                 break;
 
             case 9: //Letra_P
                 Helper.Rombo(tblTablaInicial, tblTablaResultado);
                 break;
-
+            case 10: //Letra_P
+                Helper.FiguraUno(tblTablaInicial, tblTablaResultado);
+                break;
+            case 11: //Letra_P
+                Helper.FiguraDos(tblTablaInicial, tblTablaResultado);
+                break;
         }
     }//GEN-LAST:event_cmdOperacionActionPerformed
 

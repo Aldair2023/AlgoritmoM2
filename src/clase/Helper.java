@@ -160,7 +160,7 @@ public class Helper {
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if (i == nFilas - 4 || (i == nFilas - 5)) {
+                if (j == 0 && i!=0 && i!=nFilas/2 && i < nFilas/2 || j == nColumnas-1 && i!=0 && i!=nFilas/2 && i < nFilas/2 || i==nFilas/2 && j!= 0 && j!= nColumnas-1 ||i==0 && j!= 0 && j!= nColumnas-1 || (i == j && i + j >= nFilas)) {
                     TablaResultado.setValueAt(aux, i, j);
                 }
 
@@ -221,7 +221,7 @@ public class Helper {
         }
     }
 
-    public static void LetraP(JTable TablaInicial, JTable TablaResultado) {
+    public static void FiguraUno(JTable TablaInicial, JTable TablaResultado) {
         int nFilas, nColumnas, aux;
 
         nFilas = TablaInicial.getColumnCount();
@@ -230,15 +230,21 @@ public class Helper {
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if ((j == 0 || i == 0 || i == nFilas / 2) || (j == nColumnas - 1 && j / i >= 2)) {
+                /*
+                if (i == j || i + j == nFilas - 1 || (j > i && i >= nFilas / 2) || (j < i && i <= nFilas / 2) || (j + i ==nFilas-1 && i <= nFilas / 2)) {
+                    TablaResultado.setValueAt(aux, i, j);
+                /*
+                
+                */
+                if (i == 0 || ((i >= j && j >= (nFilas -1) -i)) || (i <= j) && (j <= (nFilas -1) -i)){
                     TablaResultado.setValueAt(aux, i, j);
                 }
             }
-
+            
         }
     }
 
-    public static void LetraI(JTable TablaInicial, JTable TablaResultado) {
+    public static void FiguraDos(JTable TablaInicial, JTable TablaResultado) {
         int nFilas, nColumnas, aux;
 
         nFilas = TablaInicial.getColumnCount();
@@ -247,7 +253,7 @@ public class Helper {
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if ((i == 0 || i == nFilas - 1 || j == nColumnas / 2)) {
+                if (j == 0 ||((j >= i && i >= (nColumnas -1) -j)) || (j <= i) && (i <= (nColumnas -1) -j) ) {
                     TablaResultado.setValueAt(aux, i, j);
                 }
             }
@@ -256,16 +262,15 @@ public class Helper {
     }
 
     public static void Mas(JTable TablaInicial, JTable TablaResultado) {
-        int nFilas, nColumnas, aux, aux2;
+        int nFilas, nColumnas, aux;
 
         nFilas = TablaInicial.getColumnCount();
         nColumnas = TablaInicial.getRowCount();
-        aux2 = nColumnas / 3;
 
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if ((j >= aux2 && j < nColumnas - aux2) || (i >= aux2 && i < nColumnas - aux2)) {
+                if ((j >= nColumnas / 3 && j < nColumnas - nColumnas / 3) || (i >= nColumnas / 3 && i < nColumnas - nColumnas / 3)) {
                     TablaResultado.setValueAt(aux, i, j);
 
                 }
@@ -292,19 +297,11 @@ public class Helper {
         }
     }
 
-    public static void LetraX(JTable TablaInicial, JTable TablaResultado) {
-        int nFilas, nColumnas, aux;
+    /*
+    (((i >= j || j > nFilas - 1) && i <= nFilas / 2) || (j > i && i >= nFilas / 2) || ((j <= i && j <= nFilas - 1) && i >= nFilas / 2))
 
-        nFilas = TablaInicial.getColumnCount();
-        nColumnas = TablaInicial.getRowCount();
-        for (int i = 0; i < nFilas; i++) {
-            for (int j = 0; j < nColumnas; j++) {
-                aux = (int) TablaInicial.getValueAt(i, j);
-                if (i + j == nFilas - 1 || i == j) {
-                    TablaResultado.setValueAt(aux, i, j);
-                }
-            }
-
-        }
-    }
+    (i==j || i+j == nFilas-1 || (j > i && i >= nFilas/2) || (j < i && i <= nFilas/2) || 
+    /*
+    
+     */
 }
