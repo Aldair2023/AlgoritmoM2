@@ -16,7 +16,8 @@ import javax.swing.table.DefaultTableModel;
  * @author aldair
  */
 public class Helper {
-   public static int mensaje(Component ventana, String info, String titulo, int tipo) {
+
+    public static int mensaje(Component ventana, String info, String titulo, int tipo) {
         int retorno = -1;
         switch (tipo) {
             case 1:
@@ -84,10 +85,13 @@ public class Helper {
             for (int j = 0; j < nColumnas; j++) {
 
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if (j == 0 || i == 0 && j != nFilas-1 || i == nFilas/2 || i == nFilas-1 || j == (nColumnas-1)) {
+                if ((i == 0 || i == nFilas / 2 || i == nFilas - 1 || j == 0) && j != nColumnas - 1) {
                     TablaResultado.setValueAt(aux, i, j);
                 }
+                if ((j == nColumnas - 1 && i != 0 && i != nFilas / 2 && i != nFilas - 1)) {
+                    TablaResultado.setValueAt(aux, i, j);
 
+                }
             }
 
         }
@@ -102,7 +106,7 @@ public class Helper {
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if (j == nColumnas/2 || i+j == nFilas-1 && i <= j || i == j && i+j > nFilas ) {
+                if (j == nColumnas / 2 || i + j == nFilas - 1 && i <= j || i == j && i + j > nFilas) {
                     TablaResultado.setValueAt(aux, i, j);
                 }
 
@@ -120,7 +124,7 @@ public class Helper {
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if ((i + j == nFilas - 1 && i <= j) || (i == j && i + j <= nFilas) || j==0 || j== nColumnas-1) {
+                if ((i + j == nFilas - 1 && i <= j) || (i == j && i + j <= nFilas) || j == 0 || j == nColumnas - 1) {
                     TablaResultado.setValueAt(aux, i, j);
                 }
 
@@ -128,7 +132,6 @@ public class Helper {
 
         }
     }
-
 
     public static void LetraW(JTable TablaInicial, JTable TablaResultado) {
         int nFilas, nColumnas, aux;
@@ -139,7 +142,7 @@ public class Helper {
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if ((i + j == nFilas - 1 && i >= j) || (i == j && i + j >= nFilas) || j==0 || j== nColumnas-1) {
+                if ((i + j == nFilas - 1 && i >= j) || (i == j && i + j >= nFilas) || j == 0 || j == nColumnas - 1) {
                     TablaResultado.setValueAt(aux, i, j);
                 }
 
@@ -157,7 +160,7 @@ public class Helper {
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if (i == nFilas-4 || (i == nFilas-5)  ) {
+                if (i == nFilas - 4 || (i == nFilas - 5)) {
                     TablaResultado.setValueAt(aux, i, j);
                 }
 
@@ -175,7 +178,7 @@ public class Helper {
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if (i == 0 || j == nColumnas/2 || i == nFilas-1 && j <= nColumnas/2 || j == 0 && i >= nFilas/2) {
+                if (i == 0 || j == nColumnas / 2 || i == nFilas - 1 && j <= nColumnas / 2 || j == 0 && i >= nFilas / 2) {
                     TablaResultado.setValueAt(aux, i, j);
                 }
 
@@ -193,7 +196,7 @@ public class Helper {
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if (i == 0 || j == 0 || i == nFilas-1 || i == nFilas/2 || j == nColumnas-1 && i >= nFilas/2 || j == nColumnas-1 && i <= (nFilas/2)/2){
+                if (i == 0 || j == 0 || i == nFilas - 1 || i == nFilas / 2 || j == nColumnas - 1 && i >= nFilas / 2 || j == nColumnas - 1 && i <= (nFilas / 2) / 2) {
                     TablaResultado.setValueAt(aux, i, j);
                 }
             }
@@ -252,24 +255,26 @@ public class Helper {
         }
     }
 
-    public static void LetraN(JTable TablaInicial, JTable TablaResultado) {
-        int nFilas, nColumnas, aux;
+    public static void Mas(JTable TablaInicial, JTable TablaResultado) {
+        int nFilas, nColumnas, aux, aux2;
 
         nFilas = TablaInicial.getColumnCount();
         nColumnas = TablaInicial.getRowCount();
+        aux2 = nColumnas / 3;
 
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                if ((i == j || j == 0 || j == nColumnas - 1)) {
+                if ((j >= aux2 && j < nColumnas - aux2) || (i >= aux2 && i < nColumnas - aux2)) {
                     TablaResultado.setValueAt(aux, i, j);
+
                 }
             }
-
         }
+
     }
 
-    public static void LetraY(JTable TablaInicial, JTable TablaResultado) {
+    public static void Rombo(JTable TablaInicial, JTable TablaResultado) {
         int nFilas, nColumnas, aux;
 
         nFilas = TablaInicial.getColumnCount();
@@ -278,9 +283,10 @@ public class Helper {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
 
-                if (j == nColumnas / 2 && j <= i || (i + j == nFilas - 1 && i <= j) || (i == j && i + j <= nFilas)) {
+                if ((i + j == nFilas / 2 && j <= nColumnas / 2 && i <= nFilas / 2) || i + nColumnas / 2 == j || j + nFilas / 2 == i || (j + 1 == nColumnas - i + (nColumnas / 2))) {
                     TablaResultado.setValueAt(aux, i, j);
                 }
+
             }
 
         }
@@ -300,5 +306,5 @@ public class Helper {
             }
 
         }
-    } 
+    }
 }
