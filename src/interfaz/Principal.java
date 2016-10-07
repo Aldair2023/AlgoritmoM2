@@ -164,7 +164,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 390, 210));
 
-        cmbCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LetraB", "LetraK", "LetraM", "LetraW", "LetraQ", "LetraJ", "LetraG", "LetraR", "FiguraUNO", "FiguraDOS", "Cruz", "Rombo" }));
+        cmbCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "LetraB", "LetraK", "LetraM", "LetraW", "LetraQ", "LetraJ", "LetraG", "LetraR", "FiguraUno", "FiguraDos", "Mas", "Rombo" }));
         jPanel1.add(cmbCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 100, 50));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interfaz/Binary-1024x640.jpg"))); // NOI18N
@@ -223,7 +223,6 @@ public class Principal extends javax.swing.JFrame {
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
     }//GEN-LAST:event_cmdLimpiarActionPerformed
-
     private void cmdCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrearActionPerformed
         // TODO add your handling code here:
         try {
@@ -233,7 +232,7 @@ public class Principal extends javax.swing.JFrame {
             nFilas = Integer.parseInt(txtFilas.getText());
             nColumnas = Integer.parseInt(txtColumnas.getText());
 
-            if (nFilas >= 15 && nColumnas >= 15) {
+            if (nFilas >= 16 && nColumnas >= 16) {
                 Helper.mensaje(this, "La Matriz es Demasiado Grande", "Aviso", 1);
                 Helper.tablaPorDefecto(tblTablaInicial);
                 Helper.tablaPorDefecto(tblTablaResultado);
@@ -457,26 +456,7 @@ public class Principal extends javax.swing.JFrame {
             case 7: //Letra_R
                 Helper.LetraR(tblTablaInicial, tblTablaResultado);
                 break;
-            case 8: //Figura_Mas
-                Helper.Mas(tblTablaInicial, tblTablaResultado);
-                break;
-            case 9: //Letra_Rombo
-                if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
-                    Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor la Letra requerida", "Aviso", 1);
-                    Helper.tablaPorDefecto(tblTablaInicial);
-                    Helper.tablaPorDefecto(tblTablaResultado);
-                    txtFilas.setText("");
-                    txtColumnas.setText("");
-                    txtFilas.requestFocusInWindow();
-                    cmbCombo.setSelectedIndex(0);
-                    JButton botonesH[] = {cmdLimpiar, cmdCrear};
-                    JButton botonesD[] = {cmdOperacion, cmdAuto, cmdManual};
-                    Helper.habilitarBotones(botonesH);
-                    Helper.deshabilitarBotones(botonesD);
-                }
-                Helper.Rombo(tblTablaInicial, tblTablaResultado);
-                break;
-            case 10: //Letra_Figura_Uno
+            case 8: //Letra_Figura_Uno
                 if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
                     Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor la Letra requerida", "Aviso", 1);
                     Helper.tablaPorDefecto(tblTablaInicial);
@@ -492,7 +472,7 @@ public class Principal extends javax.swing.JFrame {
                 }
                 Helper.FiguraUno(tblTablaInicial, tblTablaResultado);
                 break;
-            case 11: //Letra_Figura_Dos
+            case 9: //Letra_Figura_Dos
                 if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
                     Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor la Letra requerida", "Aviso", 1);
                     Helper.tablaPorDefecto(tblTablaInicial);
@@ -508,6 +488,26 @@ public class Principal extends javax.swing.JFrame {
                 }
                 Helper.FiguraDos(tblTablaInicial, tblTablaResultado);
                 break;
+            case 10: //Figura_Mas
+                Helper.Mas(tblTablaInicial, tblTablaResultado);
+                break;
+            case 11: //Letra_Rombo
+                if (nFilas % 2 == 0 || nColumnas % 2 == 0) {
+                    Helper.mensaje(this, "La matriz debe ser Impar para visualizar mejor la Letra requerida", "Aviso", 1);
+                    Helper.tablaPorDefecto(tblTablaInicial);
+                    Helper.tablaPorDefecto(tblTablaResultado);
+                    txtFilas.setText("");
+                    txtColumnas.setText("");
+                    txtFilas.requestFocusInWindow();
+                    cmbCombo.setSelectedIndex(0);
+                    JButton botonesH[] = {cmdLimpiar, cmdCrear};
+                    JButton botonesD[] = {cmdOperacion, cmdAuto, cmdManual};
+                    Helper.habilitarBotones(botonesH);
+                    Helper.deshabilitarBotones(botonesD);
+                }
+                Helper.Rombo(tblTablaInicial, tblTablaResultado);
+                break;
+
         }
     }//GEN-LAST:event_cmdOperacionActionPerformed
 

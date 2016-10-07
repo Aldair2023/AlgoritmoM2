@@ -291,11 +291,4 @@ public class Helper {
         }
     }
 
-    /*
-    (((i >= j || j > nFilas - 1) && i <= nFilas / 2) || (j > i && i >= nFilas / 2) || ((j <= i && j <= nFilas - 1) && i >= nFilas / 2))
-
-    (i==j || i+j == nFilas-1 || (j > i && i >= nFilas/2) || (j < i && i <= nFilas/2) || 
-    /*
-    
-     */
 }
