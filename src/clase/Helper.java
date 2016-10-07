@@ -230,12 +230,6 @@ public class Helper {
         for (int i = 0; i < nFilas; i++) {
             for (int j = 0; j < nColumnas; j++) {
                 aux = (int) TablaInicial.getValueAt(i, j);
-                /*
-                if (i == j || i + j == nFilas - 1 || (j > i && i >= nFilas / 2) || (j < i && i <= nFilas / 2) || (j + i ==nFilas-1 && i <= nFilas / 2)) {
-                    TablaResultado.setValueAt(aux, i, j);
-                /*
-                
-                */
                 if (i == 0 || ((i >= j && j >= (nFilas -1) -i)) || (i <= j) && (j <= (nFilas -1) -i)){
                     TablaResultado.setValueAt(aux, i, j);
                 }
